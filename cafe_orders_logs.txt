@@ -1,0 +1,12 @@
+user=Иван item=Кофе cost=120
+user=Крис Бендор item=Кофе Салат Панкейк cost=520
+user=Геворг item=Кофе Панкейк cost=250 device=['Mobile', 'PC', 'Tablet', 'Other']
+user=Егор item=Кофе Панкейк cost=250 device=Tablet
+user=Роман Бриджер item=Пепси Салат Панкейк cost=510 device=PC
+user=Балбес item=Кофе Панкейк Пепси cost=360 device=Mobile
+user=Кот В Сапогах item=Чай Пельмени Панкейк cost=345 device=Other
+['2025-11-30 17:48:20']user=Ваня item=Кофе Панкейк cost=250 device=Mobile
+2025-11-30 17:48:54 user=Томми Версетти item=Кофе cost=120 device=Tablet
+25-11-30 Nov:11:1764514246 user=Витя item=Кофе cost=120 device=Other
+2025-51-11/30/25 17:51:19 user=Ваня item=Кофе cost=120 device=Mobile
+2025-11-30 17:52:34 user=Иван item=Кофе cost=120 device=Tablet
