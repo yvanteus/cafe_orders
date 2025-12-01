@@ -11,11 +11,24 @@ def main():
         "Пельмени": 145,
         "Сыр": 270,
         "Рыба": 250,
+        "Тирамису": 170,
+        "Хлеб": 12
         
     }
     
+    recommendations = {
+        "Кофе": ["Панкейк", "Тирамису"],
+        "Чай": ["Панкейк", "Тирамису"],
+        "Какао": ["Панкейк", "Тирамису"],
+        "Салат": ["Чай", "Хлеб"],
+        "Пельмени": ["Чай", "Кофе", "Хлеб"],
+        "Рыба": ["Хлеб", "Чай"],
+        "Тирамису": ["Какао", "Кофе", "Чай"],
+        "Панкейк": ["Какао", "Кофе", "Чай"]
+    }
+    
     devices = ["Mobile", "PC", "Tablet", "Other"] #список девайсов для генерации в логи
-    device = get_device(devices)
+    device = get_device(devices) #достаем случайный девайс из списка выше с помощью рандома
     
     order_list = [] #собираем итоговый заказ 
     total_price = 0 #итоговая стоимость
@@ -25,18 +38,25 @@ def main():
     
     while True:
         order, price = get_order(menu=menu)
+        
+        if order is None:
+            break
+        
         order_list.append(order)
         total_price += price
         
-        more = input("Что нибудь еще? да/нет\n").strip().lower()
-        if more != "да":
-            break
+        if order in recommendations:
+            recs = [r for r in recommendations[order] if r not in order_list]
+            if recs: 
+                print(f"\nК {order} рекомендуем {', '.join(recs)}")
+        #блок кода выше делает рекомендации, исключая варианты, которые уже есть в заказе
         
         
-    print(f"{user_name}, ваш заказ: {' '.join(order_list)}. К оплате {total_price} руб")
+    print(f"{user_name}, ваш заказ: {', '.join(order_list).lower()}. К оплате {total_price} руб")
         
         
-    save_log(name=user_name, order=' '.join(order_list), price=total_price, device=device)
+    save_log(name=user_name, order=','.join(order_list), price=total_price, device=device)
     
 if __name__ == "__main__":
     main()
+    

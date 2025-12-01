@@ -15,12 +15,14 @@ def show_menu(menu: dict[str, int]) -> None:
 def get_order(menu: dict[str, int]) -> tuple[str, int]:
     '''Запрашиваем у покупателя заказ. Возвращаем кортеж из наименования позиции в меню и его стоимость'''
     while True:
-        print("\nЧто хотите заказать?")
+        print("\nЧто хотите заказать? (0 для подтверждения заказа)")
         choice = input().strip().capitalize()
         
         if choice in menu:
             price = menu[choice]
             return choice, price
+        elif choice == "0":
+            return None, 0
         else:
             print("Такой позиции в меню нет")
             
