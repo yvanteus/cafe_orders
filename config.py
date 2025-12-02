@@ -1,0 +1,1 @@
+devices = ["Mobile", "PC", "Tablet", "Other"] #список девайсов для генерации в логи

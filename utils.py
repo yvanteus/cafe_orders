@@ -3,7 +3,14 @@ from datetime import datetime
 
 def get_text(text: str) -> str:
     """Единственная задача этой функции - запросить имя от покупателя"""
-    return input(text).strip().title()
+    while True:
+        user_name = input(text)
+        
+        if not user_name or user_name.isspace():
+            print("Пожалуйста, введите имя")
+            continue
+        else:
+            return user_name.strip().title()
 
 
 def show_menu(menu: dict[str, int]) -> None:
@@ -16,7 +23,7 @@ def get_order(menu: dict[str, int]) -> tuple[str, int]:
     '''Запрашиваем у покупателя заказ. Возвращаем кортеж из наименования позиции в меню и его стоимость'''
     while True:
         print("\nЧто хотите заказать? (0 для подтверждения заказа)")
-        choice = input().strip().capitalize()
+        choice = input().strip().lower()
         
         if choice in menu:
             price = menu[choice]
